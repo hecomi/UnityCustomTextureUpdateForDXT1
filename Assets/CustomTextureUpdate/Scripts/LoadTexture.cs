@@ -50,12 +50,12 @@ public class LoadTexture : MonoBehaviour
         url = "file://" + url;
 #endif
 
-        using (var www = new WWW(url)) 
+        using (var www = UnityWebRequest.Get(url)) 
         {
-            yield return www;
+            yield return www.SendWebRequest();
             if (string.IsNullOrEmpty(www.error))
             {
-                OnDataLoaded(www.bytes);
+                OnDataLoaded(www.downloadHandler.data);
             }
             else
             {
