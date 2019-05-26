@@ -19,9 +19,7 @@ void DdsLoader::Load(const void *pData, size_t dataSize)
     height_ = pHeader->dwHeight;
 
     constexpr size_t headerSize = sizeof(DdsHeader);
-    const size_t blockWidth = (width_ + 3) / 4;
-    const size_t blockHeight = (height_ + 3) / 4;
-    const size_t bufferSize = blockWidth * blockHeight * 8; 
+    const size_t bufferSize = dataSize - headerSize;
     const auto *pBuffer = reinterpret_cast<const char*>(pData) + headerSize;
 
     data_ = std::make_unique<char[]>(bufferSize);
