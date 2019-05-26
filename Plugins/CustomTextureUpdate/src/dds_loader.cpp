@@ -1,9 +1,35 @@
 #include <cstdio>
+#include <Windows.h>
 #include "dds_loader.h"
 #include "util.h"
 
 using namespace CustomTextureUpdate;
 
+// https://dench.flatlib.jp/ddsformat
+struct DdsHeader
+{
+    DWORD dwMagic;
+    DWORD dwSize;
+    DWORD dwFlags;
+    DWORD dwHeight;
+    DWORD dwWidth;
+    DWORD dwPitchOrLinearSize;
+    DWORD dwDepth;
+    DWORD dwMipMapCount;
+    DWORD dwReserved1[11];
+    DWORD dwPfSize;
+    DWORD dwPfFlags;
+    DWORD dwFourCC;
+    DWORD dwRGBBitCount;
+    DWORD dwRBitMask;
+    DWORD dwGBitMask;
+    DWORD dwBBitMask;
+    DWORD dwRGBAlphaBitMask;
+    DWORD dwCaps;
+    DWORD dwCaps2;
+    DWORD dwReservedCaps[2];
+    DWORD dwReserved2;
+};
 
 void DdsLoader::Load(const void *pData, size_t dataSize)
 {
