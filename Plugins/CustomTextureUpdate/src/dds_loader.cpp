@@ -18,7 +18,7 @@ void DdsLoader::Load(const void *pData, size_t dataSize)
     m_width = pHeader->dwWidth;
     m_height = pHeader->dwHeight;
 
-    constexpr size_t headerSize = 128;
+    constexpr size_t headerSize = sizeof(DdsHeader);
     const size_t blockWidth = (m_width + 3) / 4;
     const size_t blockHeight = (m_height + 3) / 4;
     const size_t bufferSize = blockWidth * blockHeight * 8; 

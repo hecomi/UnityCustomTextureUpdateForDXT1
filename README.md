@@ -1,7 +1,7 @@
 CustomTextureUpdate for DXT1 doesn't work now
 =============================================
 
-Unity seems to allow only raw buffers for CustomTextureUpdate now. This is an example to show how it doesn't work.
+This is a simple example to load a .dds file and update a texture using a DXT1 buffer with CustomTextureUpdate API.
 
 
 License

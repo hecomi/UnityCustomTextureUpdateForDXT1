@@ -53,7 +53,6 @@ public class LoadTexture : MonoBehaviour
         using (var www = new WWW(url)) 
         {
             yield return www;
-            Debug.Log(www.bytesDownloaded);
             if (string.IsNullOrEmpty(www.error))
             {
                 OnDataLoaded(www.bytes);
@@ -84,7 +83,6 @@ public class LoadTexture : MonoBehaviour
 
         var width = Lib.GetWidth(id_);
         var height = Lib.GetHeight(id_);
-        Debug.Log(width + " " + height);
         texture_ = new Texture2D(width, height, TextureFormat.DXT1, false);
 
         var renderer = GetComponent<Renderer>();

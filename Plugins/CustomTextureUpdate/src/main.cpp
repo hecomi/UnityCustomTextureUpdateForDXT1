@@ -79,6 +79,10 @@ void UNITY_INTERFACE_API OnTextureUpdate(int eventId, void *pData)
                 pLoader->GetHeight() == pParams->height)
             {
                 pParams->texData = pLoader->GetData();
+
+                // !!! overwrite texture bytes per px
+                // ref. https://github.com/keijiro/KlakHap/blob/master/Plugin/Source/KlakHap.cpp#L33
+                pParams->bpp = 2;
             }
             else
             {
