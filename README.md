@@ -1,7 +1,8 @@
-CustomTextureUpdate Example
-===========================
+CustomTextureUpdate for DXT1 doesn't work now
+=============================================
 
-This is an example to load textures from PNG file in the StreaminAssets directory using `CustomTextureUpdate()`.
+Unity seems to allow only raw buffers for CustomTextureUpdate now. This is an example to show how it doesn't work.
+
 
 License
 -------
